@@ -77,9 +77,11 @@ packages:
   graph:
     dependency: "direct main"
     description:
-      path: "../graph"
-      relative: true
-    source: path
+      path: "."
+      ref: e929fdecfecf3785104d574def84f88ad889bfa3
+      resolved-ref: e929fdecfecf3785104d574def84f88ad889bfa3
+      url: "https://github.com/LeonFuss/graph.git"
+    source: git
     version: "0.0.1"
   matcher:
     dependency: transitive

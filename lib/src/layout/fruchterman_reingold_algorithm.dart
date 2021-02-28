@@ -54,7 +54,7 @@ class FruchtermanReingoldAlgorithm extends Algorithm {
     final random = Random();
     for (final node in graph) {
       displacement[node.id] = Offset.zero;
-      if (node.position.distance == 0.0) {
+      if (node.position == null || node.position.distance == 0.0 ) {
         node.position = Offset(
             randInt(random, 0, size.width), randInt(random, 0, size.height));
       }
@@ -69,7 +69,7 @@ class FruchtermanReingoldAlgorithm extends Algorithm {
     for (final v in graph.items) {
       for (final u in graph.items) {
         if (u != v) {
-          var delta = v.position - u.position;
+          Offset delta = v.position - u.position;
           var deltaLength = max(EPSILON, delta.distance);
 
           displacement[v.id] = (displacement[v.id]! +
@@ -84,7 +84,7 @@ class FruchtermanReingoldAlgorithm extends Algorithm {
       var source = edge.source;
       var target = edge.target;
 
-      var delta = source.position - target.position;
+      Offset delta = source.position - target.position;
       var deltaLength = max(EPSILON, delta.distance);
       var offsetDis = delta / deltaLength * forceAttraction(deltaLength);
 
@@ -266,7 +266,7 @@ class NodeCluster {
 
   void concat(NodeCluster cluster) {
     for (final node in cluster.nodes) {
-      node.position = (Offset(rect.right + CLUSTER_PADDING, rect.top));
+      node.position = (Offset(rect.right + FruchtermanReingoldAlgorithm.CLUSTER_PADDING, rect.top));
       add(node);
     }
   }

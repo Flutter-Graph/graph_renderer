@@ -2,7 +2,6 @@ name: graph_renderer
 description: rendering of a graph for the graph package
 version: 0.0.1
 author: Leon Fuß
-homepage:
 
 environment:
   sdk: ">=2.12.0-0 <3.0.0"
@@ -13,7 +12,9 @@ dependencies:
     sdk: flutter
 
   graph:
-    path: ../graph
+    git:
+      url: https://github.com/LeonFuss/graph.git
+      ref: e929fdecfecf3785104d574def84f88ad889bfa3
 
 dev_dependencies:
   flutter_test:
